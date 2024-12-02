@@ -13,3 +13,4 @@
 # screenshot of table 
 ![Screenshot 2024-12-02 201215](https://github.com/user-attachments/assets/5030c4d2-a982-4d14-8dba-2d0357747275)
 ## Now lets create a all table then apply the all join 
+INSERT INTO PR
