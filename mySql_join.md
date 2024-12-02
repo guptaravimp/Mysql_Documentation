@@ -94,7 +94,7 @@ INNER JOIN Project as p on e.id=p.empID ;
 ## SEE the output table ->
 ![Screenshot 2024-12-02 211320](https://github.com/user-attachments/assets/6e0efafe-df26-470a-891a-a024b37b4648)
 
-# 1- LEFT  JOIN 
+# 2- LEFT  JOIN 
 -- Problem state- -- fetch out all each project allocated to each employee
 ```
  select * from employee as e
@@ -102,3 +102,20 @@ INNER JOIN Project as p on e.id=p.empID ;
 ```
 ## SEE this table
 ![Screenshot 2024-12-02 211728](https://github.com/user-attachments/assets/3f28c53d-32a3-45ee-9b45-b204334e50bb) 
+# 3- RIGHT JOIN 
+Problem state- List out all the project along with the employee name and their respective allocated email id 
+```
+select e.fname, e.lname, p.name ,p.id from employee as e
+RIGHT JOIN Project as p on e.id=p.empID;
+```
+## see the complte table 
+![Screenshot 2024-12-02 212521](https://github.com/user-attachments/assets/4f6180ce-97d2-43ef-ba2d-1c9943c70759)
+
+# 4- CROSS JOIN 
+Problem state- List out all the combinations possible for the employee name and project that can exists
+```
+select e.fname,e.lname,p.id,p.name from employee as e 
+CROSS JOIN Project as p ;
+```
+## see the complte table 
+![Screenshot 2024-12-02 213007](https://github.com/user-attachments/assets/57fa3b09-cb7b-43f1-9384-c615836611f1)
