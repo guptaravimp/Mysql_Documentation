@@ -74,3 +74,31 @@ INSERT INTO CLIENT (id, first_name, last_name, age, emailID, PhoneNo, City, empI
 ```
 Here we created a finaljointable named database and create all three table and inserted table data into it 
 ## Now see all the joins 
+
+# 1- INNER JOIN 
+```
+-- INNER JOiN
+-- Enlist all the employee id's name along with the project allocated to them 
+select e.id , e.fname, e.lname, p.id, p.name from employee as e 
+INNER JOIN Project as p on e.id=p.empID ;
+```
+### table screenshot->
+![Screenshot 2024-12-02 210239](https://github.com/user-attachments/assets/4dfe751c-79ea-4876-840e-9ef6cf1e0279)
+## Problem 2->
+-- Fetch out all the employee id's and their contact detail who have been
+-- working from jaipur with the clients name working in hyderabad 
+ ```
+ select e.id ,e.PhoneNo, e.emailID , c.first_name, c.last_name from employee as e
+ INNER JOIN client as c on e.id=c.empID where e.City='Jaipur' and c.City='Hyderabad';
+ ```
+## SEE the output table ->
+![Screenshot 2024-12-02 211320](https://github.com/user-attachments/assets/6e0efafe-df26-470a-891a-a024b37b4648)
+
+# 1- LEFT  JOIN 
+-- Problem state- -- fetch out all each project allocated to each employee
+```
+ select * from employee as e
+ LEFT JOIN Project as p ON e.id=p.empID
+```
+## SEE this table
+![Screenshot 2024-12-02 211728](https://github.com/user-attachments/assets/3f28c53d-32a3-45ee-9b45-b204334e50bb) 
