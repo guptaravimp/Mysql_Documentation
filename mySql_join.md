@@ -119,3 +119,103 @@ CROSS JOIN Project as p ;
 ```
 ## see the complte table 
 ![Screenshot 2024-12-02 213007](https://github.com/user-attachments/assets/57fa3b09-cb7b-43f1-9384-c615836611f1)
+
+
+# Can we Join without using join keyword -answer- yes 
+Synatax:
+```
+select e.id , e.fname, e.lname, p.id, p.name from employee as e ,
+Project as p where e.id=p.empID ;
+```
+![Screenshot 2024-12-02 210239](https://github.com/user-attachments/assets/4dfe751c-79ea-4876-840e-9ef6cf1e0279)
+
+
+
+
+# See the complete code here 
+```
+create database finaljointable;
+use finaljointable;
+CREATE TABLE Project(
+    id INT PRIMARY KEY,
+    empID INT,
+    name  VARCHAR(20),
+    startdate DATE,
+    clientId INT,
+    FOREIGN KEY (empID) REFERENCES Project(id) -- If self-referencing is needed
+);
+INSERT INTO Project (id, empID, name, startdate, clientID) VALUES
+(1, 1, 'A', '2021-04-21', 3),
+(2, 2, 'B', '2021-03-12', 1),
+(3, 3, 'C', '2021-01-16', 5),
+(4, 3, 'D', '2021-04-27', 2),
+(5, 5, 'E', '2021-05-01', 4);
+
+CREATE TABLE EMPLOYEE (
+    id INT PRIMARY KEY,
+    fname VARCHAR(50),
+    lname VARCHAR(50),
+    Age INT,
+    emailID VARCHAR(100),
+    PhoneNo VARCHAR(20),
+    City VARCHAR(50),
+    FOREIGN KEY (id) REFERENCES Project(id)
+);
+
+-- Insert data into EMPLOYEE table
+INSERT INTO EMPLOYEE (id, fname, lname, Age, emailID, PhoneNo, City) VALUES
+(1, 'Aman', 'Proto', 32, 'aman@gmail.com', '898', 'Delhi'),
+(2, 'Yagya', 'Narayan', 44, 'yagya@gmail.com', '222', 'Palam'),
+(3, 'Rahul', 'BD', 22, 'rahul@gmail.com', '444', 'Kolkata'),
+(4, 'Jatin', 'Hermit', 31, 'jatin@gmail.com', '666', 'Raipur'),
+(5, 'PK', 'Pandey', 21, 'pk@gmail.com', '555', 'Jaipur');
+
+
+
+CREATE TABLE CLIENT (
+    id INT PRIMARY KEY,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    age INT,
+    emailID VARCHAR(100),
+    PhoneNo VARCHAR(20),
+    City VARCHAR(50),
+    empID INT,
+    FOREIGN KEY (empID) REFERENCES Project(id)
+);
+
+-- Insert data into CLIENT table
+INSERT INTO CLIENT (id, first_name, last_name, age, emailID, PhoneNo, City, empID) VALUES
+(1, 'Mac', 'Rogers', 47, 'mac@hotmail.com', '333', 'Kolkata', 3),
+(2, 'Max', 'Poirier', 27, 'max@gmail.com', '222', 'Kolkata', 3),
+(3, 'Peter', 'Jain', 24, 'peter@abc.com', '111', 'Delhi', 1),
+(4, 'Sushant', 'Aggarwal', 23, 'sushant@yahoo.com', '45454', 'Hyderabad', 5),
+(5, 'Pratap', 'Singh', 36, 'p@xyz.com', '77777', 'Mumbai', 2);
+
+-- INNER JOiN
+-- Enlist all the employee id's name along with the project allocated to them 
+select e.id , e.fname, e.lname, p.id, p.name from employee as e 
+INNER JOIN Project as p on e.id=p.empID ;
+-- select * from employee as e;
+-- Fetch out all the employee id's and their contact detail who have been
+ -- working from jaipur with the clients name working in hyderabad 
+ select e.id ,e.PhoneNo, e.emailID , c.first_name, c.last_name from employee as e
+ INNER JOIN client as c on e.id=c.empID where e.City='Jaipur' and c.City='Hyderabad';
+ -- LEFT JOIN 
+ -- fetch out all each project allocated to each employee
+ select * from employee as e
+ LEFT JOIN Project as p ON e.id=p.empID;
+ -- RIGHT JOIN 
+ -- list out all the project along with the employee's anem and their respective allocated emailID
+select e.fname, e.lname, p.name ,p.id from employee as e
+RIGHT JOIN Project as p on e.id=p.empID;
+-- CROSS JOIN 
+--  List out all the combinations possible for the employee name and project that can exists
+select e.fname,e.lname,p.id,p.name from employee as e 
+CROSS JOIN Project as p ;
+-- # Can we Join without using INNER join keyword -answer- yes 
+ -- Synatax:
+ select e.id , e.fname, e.lname, p.id, p.name from employee as e ,
+Project as p where e.id=p.empID ;
+
+```
