@@ -1,6 +1,7 @@
 # Now let see that how to create a view in mysql
+#### -- view    using this we can see only required data in table in view format 
 ```
--- view 
+
 select * FROM employee;
 create view custom_view as select fname,age from employee;
 select * from custom_view
