@@ -36,7 +36,9 @@ INSERT INTO Worker (FIRST_NAME, LAST_NAME, SALARY, JOINING_DATE, DEPARTMENT) VAL
 ('Vipul', 'Diwan', 20000, '2011-06-14 09:00:00', 'Account'),  
 ('Satish', 'Kumar', 75000, '1928-01-14 09:00:00', 'Account'),  
 ('Geetika', 'Chauhan', 90000, '2011-04-14 09:00:00', 'Admin');
+
 select * from Worker;
+
 create table Bonus(
 worker_ref_id int,
 bonus_amount int,
@@ -45,13 +47,16 @@ foreign key (worker_ref_id)
   references Worker(worker_id)
   on delete cascade
 );
+
 INSERT INTO Bonus  
 (Worker_REF_ID, BONUS_AMOUNT, BONUS_DATE) VALUES  
 (001, 5000, '16-02-20'),  
 (002, 3000, '16-06-11'),  
 (003, 4000, '16-02-20'),  
 (004, 6000, '16-06-11');
+
 select * from bonus;
+
 create table title (
 worker_ref_id INT,
 worker_title char(25),
@@ -60,6 +65,7 @@ foreign key (worker_ref_id)
 references Worker(worker_id)
 on delete cascade
 );
+
 INSERT INTO title (worker_ref_id, worker_title, affected_from) VALUES
 (1, 'Manager', '2016-02-20 00:00:00'),
 (2, 'Executive', '2016-06-11 00:00:00'),
