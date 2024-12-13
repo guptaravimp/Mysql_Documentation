@@ -63,5 +63,39 @@ select * from title;
 ```
 
 ## 1-> Now let do a work on this db and do some 50 questions 
+### first east 10 questions 
+```
+use orgg;
+
+-- Q-1: Fetch “FIRST_NAME” from Worker table using alias name as WORKER_NAME.
+     select w.first_name as WORKER_NAME  from  Worker as w;
+-- Q-2: Fetch “FIRST_NAME” from Worker table in upper case.
+     select  ucase(w.first_name)  as WORKER_NAME  from  Worker as w;
+-- Q-3: Fetch unique values of DEPARTMENT from Worker table.
+     select distinct department from worker;
+     -- using group by without aggregation function act as like a distinct
+     select department from worker group by department;
+-- Q-4: Print the first three characters of FIRST_NAME from Worker table. 
+     select substring(first_name, 1,3) from worker ;
+     
+	 
+-- Q-5: Find the position of the alphabet (‘b’) in the first name column ‘Amitabh’ from Worker table. 
+select instr(first_name,'b') from Worker where first_name='Amitabh';
+
+-- Q-6: Print the FIRST_NAME from Worker table after removing white spaces from the right side.
+select rtrim(first_name) from worker ;
+
+-- Q-7: Print the DEPARTMENT from Worker table after removing white spaces from the left side.
+select ltrim(department) from worker ;
+-- Q-8: Fetch the unique values of DEPARTMENT from Worker table and print its length.
+select distinct department,length(department) from worker ;
+-- Q-9: Print the FIRST_NAME from Worker table after replacing ‘a’ with ‘A’.
+   select replace(first_name,'a','A') from worker ;
+-- Q-10: Print the FIRST_NAME and LAST_NAME from Worker table into a single column COMPLETE_NAME.
+   select concat(first_name,'',last_name) as COMPLETE_NAME from worker;
+-- Q-11: Print all Worker details from the Worker table ordered by FIRST_NAME in ascending order.
+select first_name from worker order by first_name asc;
+
+```
 
 
