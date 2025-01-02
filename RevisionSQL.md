@@ -66,7 +66,7 @@ select * from title;
 
 
 # 2. Now let see the E-R diagram of this table 
-Database---->reverse engineer----->stored connection select------> continue------>selectDB------>continue---->see the diagram 
+### Database---->reverse engineer----->stored connection select------> continue------>selectDB------>continue---->see the diagram 
 
 ![Screenshot 2025-01-02 155644](https://github.com/user-attachments/assets/01da1be4-29d0-488e-a3b1-7c1319d3bfb7)
 
@@ -77,5 +77,7 @@ Database---->reverse engineer----->stored connection select------> continue-----
 ![Screenshot 2025-01-02 155550](https://github.com/user-attachments/assets/aee5538b-de22-4353-9711-fdfa2b98309f)
 
 ![Screenshot 2025-01-02 155608](https://github.com/user-attachments/assets/ab1a729c-f1bc-4b00-aa63-fb9cc006967f)
+
+# 3. 
 
 
