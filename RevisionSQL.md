@@ -190,4 +190,121 @@ from worker
 group by department 
 having count(department)>2;
 ```
+---------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+# from here we are going to work on different database 
+# 4 Data definition language 
+## let first create a db 
+```
+create database revisionsecond;
+use revisionsecond;
+```
+## 4.1 Primary Key 
+```
+create table Customer (
+id integer primary key,
+cname varchar(255),
+Address varchar(255),
+gender char(2),
+city varchar(255),
+Pincode integer
+);
+```
+
+## 4.2 Foreign key
+```
+create table Order_detail(
+order_id integer,
+delivery_date date,
+cust_id int, foreign key(cust_id) references Customer(id)
+
+);
+```
+
+## 4.3 Unique keyword 
+## using check and unique keyword 
+```
+create table account(
+id int primary key,
+name varchar(255),
+
+balance INT,
+constraint acc_balance_chk check(balance>1000)
+);
+```
+## Now drop to use again 
+```
+DROP TABLE account;
+
+```
+## 4.4 unique
+
+```
+create table account(
+id int primary key,
+name varchar(255),
+account_no integer unique,
+balance INT,
+constraint acc_balance_chk check(balance>1000)
+);
+```
+## Now drop to use again 
+```
+DROP TABLE account;
+
+```
+
+
+## Now if we insert in account 
+
+### this will not inserted because amount is less than 1000
+```
+INSERT INTO account (id, name, balance, account_no) VALUES 
+(1, 'Alice Johnson', 1500, 900);  -- not inserted because constraint amount>1000
+```
+## Now drop to use again 
+```
+DROP TABLE account;
+
+```
+
+
+## 4.4 unique
+### set default balance 1500
+```
+create table account(
+id int primary key,
+name varchar(255),
+account_no integer unique,
+balance INT DEFAULT 1500,
+constraint acc_balance_chk check(balance>1000)
+);
+```
+# 5. alter operations 
+## -- add, modify, change column, drop column, rename 
+## 5.1 Now add new column
+```
+alter table account
+add interest float not null default 0;
+
+select*from account;
+```
+
+![Screenshot 2025-01-03 123132](https://github.com/user-attachments/assets/78fad9bc-4bcc-412e-b862-79343bbf0ea4)
+
+
+## 5.2 modify (float to double)
+```
+alter table account modify interest double not null default 0;
+select*from account;
+ -- check 
+ desc account;  -- describe the account table
+```
+
+![Screenshot 2025-01-03 123405](https://github.com/user-attachments/assets/aeb8071a-637f-4707-8842-ccbcfdc58d2f)
+
 
