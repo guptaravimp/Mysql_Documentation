@@ -150,3 +150,13 @@ INSERT INTO Order_detail (order_id, delivery_date, cust_id) VALUES
 delete from customer where id=2;
 ```
 
+# replace 
+## if data is alreday presnt  then it replace the data and 
+## if data is not alreday presnt it insert the data 
+```
+replace into customer (id,city) values(1251,'colony');
+select *from customer;
+```
+
+![Screenshot 2025-01-03 143709](https://github.com/user-attachments/assets/1b6948f3-fe74-49f7-8aa2-949a3ff67ca8)
+
