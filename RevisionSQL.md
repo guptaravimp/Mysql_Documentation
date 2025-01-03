@@ -307,4 +307,13 @@ select*from account;
 
 ![Screenshot 2025-01-03 123405](https://github.com/user-attachments/assets/aeb8071a-637f-4707-8842-ccbcfdc58d2f)
 
+## 5.3 Rename the column 
+```
+-- change rename column 
+-- interest-->saving 
+alter table account change column interest saving_interest float not null default 0;
+select*from account;
+```
+![Screenshot 2025-01-03 125053](https://github.com/user-attachments/assets/4a577ebc-7bc9-4382-ab2e-621de05125d5)
+
 
